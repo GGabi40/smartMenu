@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -41,6 +42,8 @@ const Orders = () => {
                     <th>Mesa</th>
                     <th>Detalle</th>
                     <th>Estado</th>
+                    <th>Dia</th>
+                    <th>Hora</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -54,6 +57,8 @@ const Orders = () => {
                             <td>{order.mesa}</td>
                             <td>{order.detalle}</td>
                             <td>{order.estado}</td>
+                            <td>{format(new Date(order.createdAt), 'dd/MM/yyyy')}</td>
+                            <td className='hora'>{format(new Date(order.createdAt), 'HH:mm')}</td>
                             <td>
                                 <button className='btn-delete' onClick={() => handleDelete(order.id)}>Eliminar</button>
                                 <button className='btn-edit' onClick={() => handleEdit(order)}>Editar</button>
