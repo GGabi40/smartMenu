@@ -1,12 +1,25 @@
-# React + Vite
+# TODO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-  Esencial:
+[ ] NewOrder.jsx
+[ ] Routing (/new-order)
+[ ] Login - con autenticacion
+[ ] Proteccion de rutas
+[ ] Control de vistas segun rol
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-  Orders y EditOrder:
+[ ] Solucionar el bug al volver a seleccionar el estado "pendiente" al editar un pedido (ajustar lógica del PUT o PATCH).
+[ ] Revisar si el backend acepta PATCH para actualizaciones parciales.
+[ ] Validar y manejar errores del formulario (ej: campos vacíos obligatorios, etc).
+[ ] Agregar confirmación o feedback visual si ocurre un error al actualizar.
 
-## Expanding the ESLint configuration
+[ ] Permitir filtrado o agrupamiento de pedidos por estado (opcional, si querés agregar un bonus).
+[ ] Posibilidad de ordenar por hora (más reciente primero, por ejemplo).
+[ ] Confirmación al eliminar un pedido.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[ ] Paginación si hay muchos pedidos.
+[ ] Guardado automático (auto-save) del formulario después de unos segundos.
+[ ] Exportar pedidos a PDF o Excel.
+[ ] Panel resumen: cuántos pedidos hay por estado, etc.
+[ ] Dark mode 😎

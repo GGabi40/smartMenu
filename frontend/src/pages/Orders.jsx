@@ -53,7 +53,7 @@ const Orders = () => {
                     orders.map(order => (
                         <tr 
                         key={order.id}
-                        className={order.estado === 'entregado' ? "done" : ""}>
+                        className={`pedido ${order.estado.replace(/\s/g, '-')}`}>
                             <td>{order.id}</td>
                             <td>{order.cliente}</td>
                             <td>{order.mesa}</td>
