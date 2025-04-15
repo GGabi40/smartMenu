@@ -51,7 +51,9 @@ const Orders = () => {
                 {/* viene de BBDD */}
                 {
                     orders.map(order => (
-                        <tr key={order.id}>
+                        <tr 
+                        key={order.id}
+                        className={order.estado === 'entregado' ? "done" : ""}>
                             <td>{order.id}</td>
                             <td>{order.cliente}</td>
                             <td>{order.mesa}</td>
