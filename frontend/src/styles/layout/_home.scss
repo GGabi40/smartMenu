@@ -1,0 +1,37 @@
+@use '../base/variables' as v;
+
+.home {
+    text-align: center;
+
+    h1 {
+        color: v.$color-primary;
+        font-size: 3rem;
+    }
+
+    p {
+        margin: 1rem 0;
+    }
+
+    &__actions {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__btn {
+        background-color: v.$color-secondary;
+        color: v.$color-primary;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.4s ease-in-out;
+        font-size: 1.4rem;
+    }
+
+    &__btn:hover {
+        background-color: darken(v.$color-secondary, 10%);
+    }
+}
