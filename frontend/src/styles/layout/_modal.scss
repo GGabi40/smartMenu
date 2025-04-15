@@ -11,7 +11,20 @@
   z-index: 1000;
 }
 
+@keyframes appers {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .modal {
+  animation: appers 0.5s ease-in;
   background: white;
   padding: 2rem;
   border-radius: 1rem;
