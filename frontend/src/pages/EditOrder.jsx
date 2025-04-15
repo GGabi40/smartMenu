@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 import Modal from "../components/Modal";
@@ -61,7 +61,8 @@ const EditOrder = () => {
             onClose={handleCloseModal}
         />
       )}
-      <h2>Editar Pedido</h2>
+      <h2>Editar Pedido #{id}</h2>
+      <Link to='/orders' className="btn-volver">Volver a Lista de Pedidos:</Link>
       <form onSubmit={handleSubmit}>
         <label>Cliente</label>
         <input

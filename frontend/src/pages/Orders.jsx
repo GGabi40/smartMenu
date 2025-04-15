@@ -27,11 +27,7 @@ const Orders = () => {
     }
 
     const handleEdit = async (order) => {
-        const confirmEdit = window.confirm(`Editara el pedido #${order.id}`);
-
-        if (confirmEdit) {
-            navigate(`/orders/${order.id}/edit`)
-        }
+        navigate(`/orders/${order.id}/edit`);
     }
 
   return (
