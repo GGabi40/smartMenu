@@ -28,8 +28,13 @@ const EditOrder = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const updatedFields = {};
+    for (const key in order) {
+      if (order[key] !== '') updatedFields[key] = order[key];
+    }
+
     axios
-      .put(`http://localhost:3000/api/orders/${id}`, order)
+      .put(`http://localhost:3000/api/orders/${id}`, updatedFields)
       .then(() => {
         setShowModal(true);
       })
@@ -65,7 +70,6 @@ const EditOrder = () => {
           placeholder="Nombre del cliente"
           value={order.cliente}
           onChange={handleChange}
-          required
         />
 
         <label>Mesa</label>
@@ -75,7 +79,6 @@ const EditOrder = () => {
           placeholder="Número de mesa"
           value={order.mesa}
           onChange={handleChange}
-          required
         />
 
         <label>Detalle</label>
@@ -84,7 +87,6 @@ const EditOrder = () => {
           placeholder="Detalle del pedido"
           value={order.detalle}
           onChange={handleChange}
-          required
         ></textarea>
 
         <label>Estado</label>
