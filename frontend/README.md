@@ -1,8 +1,8 @@
 # TODO
 
 -  Esencial:
-[ ] NewOrder.jsx
-[ ] Routing (/new-order)
+[X] NewOrder.jsx
+[X] Routing (/new-order)
 [ ] Login - con autenticacion
 [ ] Proteccion de rutas
 [ ] Control de vistas segun rol

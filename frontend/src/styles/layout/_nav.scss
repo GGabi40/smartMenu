@@ -38,3 +38,11 @@ nav {
     background-color: v.$color-secondary;
     color: v.$color-text;
 }
+
+@media (max-width: 600px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
