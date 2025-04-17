@@ -1,0 +1,31 @@
+@use "../base/variables" as v;
+
+input.danger,
+textarea.danger {
+  border: 1px solid v.$color-danger;
+}
+
+input.success,
+textarea.success {
+  border: 1px solid v.$color-success-border;
+}
+
+.error {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  animation: slide 0.2s ease-in;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

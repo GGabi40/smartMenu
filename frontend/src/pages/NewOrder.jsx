@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -7,6 +7,7 @@ import '../styles/app.scss';
 
 const NewOrder = () => {
     const navigate = useNavigate();
+    const [errors, setErrors] = useState({});
     const [order, setOrder] = useState({
         cliente: "",
         mesa: "",
@@ -26,10 +27,37 @@ const NewOrder = () => {
             ...order,
             [e.target.name]: e.target.value
         });
+
+        setErrors({});
     };
+
+    const validate = () => {
+        const newErrors = {};
+
+        if(!order.cliente || order.cliente.trim().length < 3) {
+            newErrors.cliente = 'El nombre del cliente debe tener al menos 2 letras.'
+        }
+
+        if(!order.mesa || parseInt(order.mesa) <= 0) {
+            newErrors.mesa = 'El número de mesa debe ser mayor que cero.';
+        }
+
+        if(!order.detalle || order.detalle.trim().length < 5) {
+            newErrors.detalle = 'El detalle debe tener al menos 5 caracteres.';
+        };
+
+        return newErrors;
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Verifica el formulario
+        const validation = validate();
+        if(Object.keys(validation).length > 0) {
+            setErrors(validation);
+            return;
+        }
 
         axios.post('http://localhost:3000/api/orders', order)
         .then(() => {
@@ -49,7 +77,7 @@ const NewOrder = () => {
         <h2>Nuevo Pedido</h2>
         <form onSubmit={handleSubmit}>
             <label>Cliente</label>
-            <input 
+            <input className={errors.cliente && 'danger'}
                 type="text" 
                 name="cliente"
                 placeholder='Nombre del cliente'
@@ -57,9 +85,12 @@ const NewOrder = () => {
                 onChange={handleChange}
                 required
             />
+            {
+                errors.cliente && <p className='error'>{errors.cliente}</p>
+            }
 
             <label>Mesa</label>
-            <input 
+            <input className={errors.mesa && 'danger'}
                 type="number" 
                 name="mesa" 
                 placeholder='Número de mesa'
@@ -67,15 +98,21 @@ const NewOrder = () => {
                 onChange={handleChange}
                 required
             />
+            {
+                errors.mesa && <p className='error'>{errors.mesa}</p>
+            }
 
             <label>Detalle</label>
-            <textarea 
+            <textarea className={errors.detalle && 'danger'}
                 name="detalle" 
                 placeholder='Detalle del pedido'
                 value={order.detalle}
                 onChange={handleChange}
                 required
             ></textarea>
+            {
+                errors.detalle && <p className='error'>{errors.detalle}</p>
+            }
 
             <button type="submit">Crear Pedido</button>
         </form>
