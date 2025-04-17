@@ -7,6 +7,7 @@ import Orders from './pages/Orders';
 import NotFound from './pages/NotFound';
 import EditOrder from './pages/EditOrder';
 import NewOrder from './pages/NewOrder';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
+          <Route path='/login' element={<Login />} />
           <Route path='/' element={<Home />} />
           <Route path='/orders' element={<Orders />} />
           <Route path='/orders/:id/edit' element={<EditOrder />} />
