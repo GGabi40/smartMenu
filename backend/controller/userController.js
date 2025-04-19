@@ -39,7 +39,7 @@ export const loginUser = async (req, res) => {
         const user = await User.findOne({ where: { email } });
         
         if (!user) {
-            return res.status(404).json({ message: 'Usuario no encontrado.' });
+            return res.status(401).json({ message: 'Usuario no encontrado.' });
         }
 
         // compara contrasenas
