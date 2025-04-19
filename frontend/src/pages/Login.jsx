@@ -1,8 +1,8 @@
 import "../styles/app.scss";
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -11,7 +11,7 @@ const Login = () => {
     password: "",
   });
 
-  const { login } = useContext(AuthContext);
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleChange = (e) => {

@@ -1,42 +1,32 @@
-import React from "react";
-import { useState, useEffect, createContext } from "react";
+import React, { useContext } from "react";
+import { useState, createContext } from "react";
 
 // Context es util para cualquier componente que necesite
 // información de autenticación.
 // Se puede acceder a ella directamente sin
 // necesidad de props drilling
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
-const AuthProvider = ({ children }) => {
-    // Manejo de estados del rol de usuario
-  const [rol, setRol] = useState(null);
-
-  useEffect(() => {
-    const storedRol = localStorage.getItem('rol');
-    
-    // recupera info de LocalStorage
-    if(storedRol) {
-        setRol(storedRol);
-    }
-  }, []);
-
+export const AuthProvider = ({ children }) => {
+  // Manejo de estados del usuario
+  const [user, setUser] = useState(null);
   
-  const login = (newRol) => {
-    setRol(newRol);
-    localStorage.setItem('rol', newRol);
+  const login = (userData) => {
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
   }
 
   // modifican el localStorage
   const logout = () => {
-    setRol(null);
-    localStorage.removeItem('rol');
+    setUser(null);
+    localStorage.removeItem('user');
   }
 
   return (
-    <AuthContext.Provider value={{ rol, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
         {children}
     </AuthContext.Provider>
   );
 };
 
-export default AuthProvider;
+export const useAuth = () => useContext(AuthContext);

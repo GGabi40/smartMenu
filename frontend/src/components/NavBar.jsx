@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 const NavBar = () => {
-  const { logout, rol } = useContext(AuthContext);
+  const { logout, user } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    navigate('/login');
     logout();
-    navigate("/");
   };
 
   return (
@@ -27,9 +27,9 @@ const NavBar = () => {
           Lista de pedidos
         </Link>
       </div>
-      {rol && (
+      {user && (
         <div className="user-info">
-          <span>Rol: {rol}</span>
+          <span>Rol: {user}</span>
           <button onClick={handleLogout} className="btn-logout">
             Cerrar sesión
           </button>

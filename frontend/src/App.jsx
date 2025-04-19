@@ -8,13 +8,13 @@ import NotFound from "./pages/NotFound";
 import EditOrder from "./pages/EditOrder";
 import NewOrder from "./pages/NewOrder";
 import Login from "./pages/Login";
-import AuthProvider from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <>
-      <AuthProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
           <NavBar />
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -24,8 +24,8 @@ function App() {
             <Route path="/new-order" element={<NewOrder />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </AuthProvider>
+        </AuthProvider>
+      </BrowserRouter>
     </>
   );
 }
