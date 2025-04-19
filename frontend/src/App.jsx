@@ -9,6 +9,7 @@ import EditOrder from "./pages/EditOrder";
 import NewOrder from "./pages/NewOrder";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -16,12 +17,18 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <NavBar />
+
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/orders/:id/edit" element={<EditOrder />} />
-            <Route path="/new-order" element={<NewOrder />} />
+
+            {/* Rutas protegidas */}
+            <Route element={<PrivateRoute />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/orders/:id/edit" element={<EditOrder />} />
+              <Route path="/new-order" element={<NewOrder />} />
+            </Route>
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
