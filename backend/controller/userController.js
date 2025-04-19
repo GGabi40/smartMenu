@@ -29,3 +29,36 @@ export const registerUser = async (req, res) => {
         res.status(500).json({ message: 'Error al registrar usuario', error });
     }
 };
+
+// login de usuario
+
+export const loginUser = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ where: { email } });
+        
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado.' });
+        }
+
+        // compara contrasenas
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        
+        if (!passwordMatch) {
+            return res.status(401).json({ message: 'Contraseña incorrecta' });
+        }
+
+        // Si todo va bien, se devuelven los datos del usuario
+        const userData = {
+            id: user.id,
+            nombre: user.nombre,
+            email: user.email,
+            rol: user.rol
+        };
+
+        res.status(200).json({ message: 'Login exitoso.', user: userData });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al iniciar sesión.', error });
+    }
+};
