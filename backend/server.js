@@ -5,6 +5,9 @@ import sequelize from './config/connection.js'; // centraliza la conexión
 import Order from './models/Order.js';
 import orderRoutes from './routes/orderRoutes.js';
 
+import User from './models/User.js';
+import userRoutes from './routes/userRoutes.js';
+
 const app = express();
 const port = 3000;
 
@@ -17,7 +20,7 @@ app.use(express.json());
 
 // RUTAS
 app.use('/api/orders', orderRoutes);
-
+app.use('/api/users', userRoutes);
 
 // Conexión:
 sequelize.authenticate()
