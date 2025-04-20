@@ -14,7 +14,7 @@ Una aplicación web para gestionar pedidos en un restaurante, con roles diferenc
 </p>
 
 ## 🛠️ Tecnologías
-<div align="center">
+<div align="left">
 
 ![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react&logoColor=white&style=for-the-badge)
 ![React Router](https://img.shields.io/badge/Routing-React_Router-CA4245?logo=reactrouter&logoColor=white&style=for-the-badge)
