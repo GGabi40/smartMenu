@@ -3,10 +3,11 @@
 -  Esencial:
 [X] NewOrder.jsx
 [X] Routing (/new-order)
-[ ] Login - con autenticacion
-[ ] Proteccion de rutas
-[ ] Control de vistas segun rol
+[X] Login - con autenticacion
+[X] Proteccion de rutas
+[X] Control de vistas segun rol
 
+[] FontAwesome - email y pass
 
 -  Orders y EditOrder:
 [ ] Solucionar el bug al volver a seleccionar el estado "pendiente" al editar un pedido (ajustar lógica del PUT o PATCH).

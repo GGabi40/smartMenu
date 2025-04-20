@@ -1,6 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { format } from "date-fns";
 
@@ -34,12 +34,30 @@ const Orders = () => {
     navigate(`/orders/${order.id}/edit`);
   };
 
+  /* Organizar por CreatedAt */
+  const [descendentOrder, setDescendentOrder] = useState(true);
+  const ordersSorted = orders
+    .slice()
+    .sort((a,b) => 
+      descendentOrder ?
+       new Date(b.createdAt) - new Date(a.createdAt) : new Date(a.createdAt) - new Date(b.createdAt)
+    );
+
   return (
     <div className="container orders">
       <h1>Lista de Pedidos</h1>
       <Link to="/new-order" className="btn-nuevo">
         + Nuevo Pedido
       </Link>
+
+      <button 
+        className="btn-toggle-order"
+        onClick={() => setDescendentOrder(!descendentOrder)}
+      >
+        Orden: {descendentOrder ? 
+        'Más antiguos primero' : 'Más recientes primero'}
+      </button>
+
       <table className="orders-table">
         <thead>
           <tr>
@@ -54,8 +72,8 @@ const Orders = () => {
           </tr>
         </thead>
         <tbody>
-          {/* viene de BBDD */}
-          {orders.map((order) => (
+          {/* Se organiza */}
+          {ordersSorted.map((order) => (
             <tr
               key={order.id}
               className={`pedido ${order.estado.replace(/\s/g, "-")}`}
