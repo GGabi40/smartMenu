@@ -10,6 +10,7 @@ import NewOrder from "./pages/NewOrder";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
+import Unauthorized from "./pages/Unauthorized";
 
 function App() {
   return (
@@ -22,13 +23,17 @@ function App() {
             <Route path="/login" element={<Login />} />
 
             {/* Rutas protegidas */}
-            <Route element={<PrivateRoute />}>
+            <Route element={<PrivateRoute allowedRoles={['mozo', 'cocina']} />}>
               <Route path="/" element={<Home />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/orders/:id/edit" element={<EditOrder />} />
+            </Route>
+
+            <Route element={<PrivateRoute allowedRoles={'mozo'} />}>
               <Route path="/new-order" element={<NewOrder />} />
             </Route>
             
+            <Route path="/unauthorized" element={<Unauthorized />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
