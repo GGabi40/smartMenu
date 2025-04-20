@@ -46,3 +46,9 @@ p {
 .container {
   padding: 3rem 1rem;
 }
+
+@media (max-width: 600px) {
+  .container {
+    padding: 3rem;
+  }
+}
