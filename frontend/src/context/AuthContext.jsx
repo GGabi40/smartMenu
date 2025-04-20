@@ -9,11 +9,14 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   // Manejo de estados del usuario
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  }); /* Cuando arma el componente, intenta recuperar user en LS */
   
   const login = (userData) => {
-    localStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
   }
 
   // modifican el localStorage

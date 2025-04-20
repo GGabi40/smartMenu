@@ -22,5 +22,5 @@
 [ ] Paginación si hay muchos pedidos.
 [ ] Guardado automático (auto-save) del formulario después de unos segundos.
 [ ] Exportar pedidos a PDF o Excel.
-[ ] Panel resumen: cuántos pedidos hay por estado, etc.
+[X] Panel resumen: cuántos pedidos hay por estado, etc.
 [ ] Dark mode 😎
