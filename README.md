@@ -3,7 +3,9 @@
 
 Una aplicación web para gestionar pedidos en un restaurante, con roles diferenciados, filtros, estadísticas y modo oscuro. Hecha con ❤️ usando React, Express y SQLite.
 
-<img src='./src/assets/img-preview/preview-1.png' alt='Login' width="400" />
+<img src='./frontend/src/assets/img-preview/preview-1.png' alt='Login' width="200" />
+<img src='./frontend/src/assets/img-preview/preview-2.png' alt='Estadisticas' width="200" />
+<img src='./frontend/src/assets/img-preview/preview-5.png' alt='Desktop' width="200" />
 
 ## 🛠️ Tecnologías
 * Frontend: React + React Router + Context API
