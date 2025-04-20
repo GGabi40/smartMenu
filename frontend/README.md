@@ -16,7 +16,7 @@
 [ ] Agregar confirmación o feedback visual si ocurre un error al actualizar.
 
 [ ] Permitir filtrado o agrupamiento de pedidos por estado (opcional, si querés agregar un bonus).
-[ ] Posibilidad de ordenar por hora (más reciente primero, por ejemplo).
+[X] Posibilidad de ordenar por hora (más reciente primero, por ejemplo).
 [ ] Confirmación al eliminar un pedido.
 
 [ ] Paginación si hay muchos pedidos.

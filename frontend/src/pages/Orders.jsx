@@ -34,29 +34,49 @@ const Orders = () => {
     navigate(`/orders/${order.id}/edit`);
   };
 
+  /* Filtrado */
+  const [filterState, setFilterState] = useState("todos");
+
   /* Organizar por CreatedAt */
   const [descendentOrder, setDescendentOrder] = useState(true);
   const ordersSorted = orders
+    .filter((order) => {
+      return filterState === "todos" || order.estado === filterState;
+    })
     .slice()
-    .sort((a,b) => 
-      descendentOrder ?
-       new Date(b.createdAt) - new Date(a.createdAt) : new Date(a.createdAt) - new Date(b.createdAt)
+    .sort((a, b) =>
+      descendentOrder
+        ? new Date(b.createdAt) - new Date(a.createdAt)
+        : new Date(a.createdAt) - new Date(b.createdAt)
     );
 
   return (
     <div className="container orders">
       <h1>Lista de Pedidos</h1>
-      <Link to="/new-order" className="btn-nuevo">
-        + Nuevo Pedido
-      </Link>
+      <div className="btn-actions">
+        <Link to="/new-order" className="btn-nuevo">
+          + Nuevo Pedido
+        </Link>
 
-      <button 
-        className="btn-toggle-order"
-        onClick={() => setDescendentOrder(!descendentOrder)}
-      >
-        Orden: {descendentOrder ? 
-        'Más antiguos primero' : 'Más recientes primero'}
-      </button>
+        <button
+          className="btn-toggle-order"
+          onClick={() => setDescendentOrder(!descendentOrder)}
+        >
+          Mostrando:{" "}
+          {descendentOrder ? "Más recientes primero" : "Más antiguos primero"}
+        </button>
+
+        <select
+          value={filterState}
+          onChange={(e) => setFilterState(e.target.value)}
+          className="select-estado"
+        >
+          <option value="todos">Todos</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="en preparación">En preparación</option>
+          <option value="entregado">Entregado</option>
+        </select>
+      </div>
 
       <table className="orders-table">
         <thead>
