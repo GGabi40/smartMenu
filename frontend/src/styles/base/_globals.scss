@@ -12,13 +12,40 @@ html {
 }
 
 body {
-    font-family: v.$font-stack;
-    background-color: v.$color-bg-light;
-    color: v.$color-text;
-    margin: 0;
-    padding: 0;
+  font-family: v.$font-stack;
+  background-color: v.$color-bg-light;
+  color: v.$color-text;
+  margin: 0;
+  padding: 0;
 
   overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+body.dark-mode {
+  background-color: #121212;
+
+  .orders-table {
+    background-color: #1e1e1e;
+  }
+
+  .btn-nuevo,
+  .btn-delete,
+  .btn-edit {
+    background-color: #333;
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3, 
+  .home p {
+    color: #fff;
+  }
+
+  .form-container h2 {
+    color: #333;
+  }
 }
 
 h1,

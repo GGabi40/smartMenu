@@ -81,6 +81,10 @@
       font-weight: bold;
     }
 
+    .pedido {
+      background-color: #f5f5f5;
+    }
+
     .pedido.pendiente {
       background-color: v.$color-waiting;
       border-left: 5px solid v.$color-waiting-border;

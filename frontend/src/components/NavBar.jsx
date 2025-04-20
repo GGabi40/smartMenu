@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 const NavBar = () => {
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
+
   const { logout, user } = useAuth();
   const navigate = useNavigate();
 
@@ -37,6 +40,9 @@ const NavBar = () => {
           </div>
         </>
       )}
+      <button onClick={toggleTheme} className="btn-mode">
+        {darkMode ? "☀️ Claro" : "🌙 Oscuro"}
+      </button>
     </nav>
   );
 };
