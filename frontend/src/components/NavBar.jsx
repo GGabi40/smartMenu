@@ -10,6 +10,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    localStorage.removeItem("user");
     navigate("/login");
     logout();
   };
