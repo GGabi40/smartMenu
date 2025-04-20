@@ -7,7 +7,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate('/login');
+    navigate("/login");
     logout();
   };
 
@@ -16,24 +16,26 @@ const NavBar = () => {
       <Link to="/" className="logo">
         SmartMenu
       </Link>
-      <div className="links">
-        <Link to="/" className="link">
-          Inicio
-        </Link>
-        <Link to="/new-order" className="link">
-          Crear pedido
-        </Link>
-        <Link to="/orders" className="link">
-          Lista de pedidos
-        </Link>
-      </div>
       {user && (
-        <div className="user-info">
-          <span>Rol: {user}</span>
-          <button onClick={handleLogout} className="btn-logout">
-            Cerrar sesión
-          </button>
-        </div>
+        <>
+          <div className="links">
+            <Link to="/" className="link">
+              Inicio
+            </Link>
+            <Link to="/new-order" className="link">
+              Crear pedido
+            </Link>
+            <Link to="/orders" className="link">
+              Lista de pedidos
+            </Link>
+          </div>
+          <div className="user-info">
+            <span>Rol: {user}</span>
+            <button onClick={handleLogout} className="btn-logout">
+              Cerrar sesión
+            </button>
+          </div>
+        </>
       )}
     </nav>
   );
