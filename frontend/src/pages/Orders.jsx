@@ -2,11 +2,14 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 import Order from "../components/Order";
+import StatisticPanel from "../components/StatisticPanel";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
     axios
@@ -33,6 +36,11 @@ const Orders = () => {
 
   return (
     <div className="container orders">
+      {
+        user === 'mozo' &&
+        <StatisticPanel orders={orders} />
+      }
+
       <h1>Lista de Pedidos</h1>
       <div className="btn-actions">
         <Link to="/new-order" className="btn-nuevo">

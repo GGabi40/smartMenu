@@ -15,9 +15,9 @@
 [ ] Validar y manejar errores del formulario (ej: campos vacíos obligatorios, etc).
 [ ] Agregar confirmación o feedback visual si ocurre un error al actualizar.
 
-[ ] Permitir filtrado o agrupamiento de pedidos por estado (opcional, si querés agregar un bonus).
+[X] Permitir filtrado o agrupamiento de pedidos por estado (opcional, si querés agregar un bonus).
 [X] Posibilidad de ordenar por hora (más reciente primero, por ejemplo).
-[ ] Confirmación al eliminar un pedido.
+[X] Confirmación al eliminar un pedido.
 
 [ ] Paginación si hay muchos pedidos.
 [ ] Guardado automático (auto-save) del formulario después de unos segundos.
