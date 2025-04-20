@@ -6,7 +6,10 @@ Una aplicación web para gestionar pedidos en un restaurante, con roles diferenc
 <p align="center">
     <img src='./frontend/src/assets/img-preview/preview-1.png' alt='Login' width="250" />
     <img src='./frontend/src/assets/img-preview/preview-2.png' alt='Estadisticas' width="250" />
-    <img src='./frontend/src/assets/img-preview/preview-5.png' alt='Desktop' width="250" />
+</p>
+
+<p align="center">
+    <img src='./frontend/src/assets/img-preview/preview-5.png' alt='Desktop' width="300" />
 </p>
 
 ## 🛠️ Tecnologías
